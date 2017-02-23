@@ -19,6 +19,9 @@ Not really, more like a toy. See below for more thorough explanations.
 
 ## How do I use ceros-sheet?
 
+### Load file
+To load a saved file, simply use its name as an argument when launching the application from the command line (e.g. `./sheet example.sht`, see the file included in the repo). Also, if you do so, save prompts will default to this name instead of displaying an empty field.
+
 ### Navigation
 Move your selection with the arrow keys. The selection will wrap around the edges of the sheet.
 
