@@ -297,14 +297,14 @@ void loadFile(char *fileName) {
                 /*curX = */fgetc(file);
                 /*curY = */fgetc(file);
                 while (TRUE) {
-                    int x = fgetc(file);
-                    if (x == EOF) {
+                    curX = fgetc(file);
+                    if (curX == EOF) {
                         break;
                     }
-                    int y = fgetc(file);
+                    curY = fgetc(file);
                     int type = fgetc(file);
                     int curType = fgetc(file);
-                    Cell *cell = &(CELL(x, y));
+                    Cell *cell = &(CELL(curX, curY));
                     cell->type = type;
                     cell->curType = curType;
                     fscanf(file, "%zu", &cell->textScroll);
@@ -320,7 +320,9 @@ void loadFile(char *fileName) {
             fclose(file);
         }
     }
-    updateCell(&(CELL(curX, curY)), CELL(curX, curY).formula, TRUE);
+    curX = 0;
+    curY = 0;
+    // updateCell(&(CELL(curX, curY)), CELL(curX, curY).formula, TRUE);
 }
 
 bool saveFile(char *defaultName, bool recover, bool quit) {
