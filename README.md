@@ -13,7 +13,7 @@ Not really, more like a toy. See below for more thorough explanations.
 * Ranges are available: you can use e.g. `A1:C4` to collect values from all of the cells contained within the rectangle that spans from `A1` to `C4`.
 * No arithmetic expressions &mdash; you have to use `SUM()`, `DIV()` etc. (they are variadic).
 * If you want to import (or export) MS Excel or LibreOffice files, then you will be disappointed, ceros-sheet only supports its own file format.
-* If you want precise numeric calculations, you will also be disappointed, as the application simply uses the available long double type, without any correction of rounding errors etc. Furthermore, floating point values are formatted to output with 3 decimal places.
+* If you want precise numeric calculations, you will also be disappointed, as the application simply uses the available long long int and double types for numeric values, without any correction of rounding errors etc. Furthermore, floating point values are formatted to output with 3 decimal places.
 * It runs on any system with an ncurses-compatible library (you'll have to replace the `#include <ncurses.h>` line in `sheet.h` though).
 * There is support for two languages at the moment: English and Polish.
 
