@@ -97,11 +97,10 @@ void removeCellRef(unsigned srcX, unsigned srcY, unsigned dstX, unsigned dstY) {
 
 void updateCell(Cell *, char *, bool);
 
-// "rozwiazanie" odwolania do komorki docelowej, aktualizacja
-// komorek zaleznych
+// resolve the destination cell reference, update dependent cells
 void resolveRef(Cell *cell) {
     RefNode *cur = cell->refs;
-    // iteracja po komorkach zaleznych i ich aktualizacja
+    // iterate over dependent cells and update them
     while (cur != NULL) {
         Cell *dst = &(CELL(cur->x, cur->y));
         Cell *sel = &(CELL(curX, curY));
@@ -571,7 +570,7 @@ void processKeys(WINDOW *pad, WINDOW *cols, WINDOW *rows,
                 break;
             case KEY_PPAGE:
             {
-                Cell * cur = &(CELL(curX, curY));
+                Cell *cur = &(CELL(curX, curY));
                 cur->textScroll =
                     WRAP(cur->textScroll - 1,
                          (int)fmax(strlen(cur->text) -
@@ -580,7 +579,7 @@ void processKeys(WINDOW *pad, WINDOW *cols, WINDOW *rows,
             }
             case KEY_NPAGE:
             {
-                Cell * cur = &(CELL(curX, curY));
+                Cell *cur = &(CELL(curX, curY));
                 cur->textScroll =
                     WRAP(cur->textScroll + 1,
                          (int)fmax(strlen(cur->text) -
